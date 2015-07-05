@@ -3,3 +3,6 @@
 /vendor
 
 /**/.galaxy_install_info
+
+/roles/geerlingguy.java
+/roles/tpbrown.gocd
