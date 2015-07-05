@@ -1,6 +1,5 @@
 ---
-- hosts: all
-  user: vagrant
+- hosts: artifactservers
   sudo: yes
 
   vars:
