@@ -15,7 +15,7 @@ rbenv local $REQUIRED_RUBY
 (rbenv exec gem list | grep bundler) || rbenv exec gem install bundler
 bundle --path=vendor/bundle --quiet
 
-ansible-galaxy install --role-file=rolefile --roles-path=roles --force
+ansible-galaxy install --role-file=Galaxyfile --roles-path=roles --force
 
 function helptext {
     echo "Usage: ./go <command>"
@@ -44,7 +44,7 @@ function destroy {
 }
 
 function execute {
-    ansible-playbook artifactory.yml -i hosts --private-key ~/.ssh/ec2.pem -u ec2-user
+    ansible-playbook site.yml -i hosts --private-key ~/.ssh/ec2.pem -u ec2-user
 }
 
 function setup {

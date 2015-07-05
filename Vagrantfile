@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "artifactory.yml"
+    ansible.playbook = "site.yml"
     ansible.groups = {
         "artifactservers" => ["artifactory"]
     }

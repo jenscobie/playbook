@@ -1,0 +1,11 @@
+---
+- hosts: artifactservers
+  sudo: yes
+
+  vars:
+    java_packages:
+      - java-1.8.0-openjdk
+
+  roles:
+      - geerlingguy.java
+      - artifactory
