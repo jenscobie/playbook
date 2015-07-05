@@ -5,6 +5,7 @@
 ## Requirements
 
 * [Python](https://www.python.org/downloads/)
+* [rbenv](https://github.com/sstephenson/rbenv/)
 * [Vagrant](https://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
@@ -19,6 +20,7 @@
     
     Available commands are:
         setup        Install project dependencies
+        spec         Run acceptance tests against the local virtual machine
         boot         Spin up a local virtual machine
         deploy       Deploy all components to the local virtual machine
         destroy      Destroy the local virtual machine
