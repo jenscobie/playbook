@@ -19,12 +19,13 @@
     Usage: ./go <command>
     
     Available commands are:
+        boot         Spin up a local virtual machine
+        destroy      Destroy the local virtual machine
+        execute      Provision EC2 servers
+        precommit    Run all validations before pushing code
+        provision    Provision the local virtual machine
         setup        Install project dependencies
         spec         Run acceptance tests against the local virtual machine
-        boot         Spin up a local virtual machine
-        deploy       Deploy all components to the local virtual machine
-        destroy      Destroy the local virtual machine
-        precommit    Run all validations before pushing code
 
 ## Acceptance Tests
 

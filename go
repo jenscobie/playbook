@@ -21,12 +21,13 @@ function helptext {
     echo "Usage: ./go <command>"
     echo ""
     echo "Available commands are:"
+    echo "    boot         Spin up a local virtual machine"
+    echo "    destroy      Destroy the local virtual machine"
+    echo "    execute      Provision EC2 servers"
+    echo "    precommit    Run all validations before pushing code"
+    echo "    provision    Provision the local virtual machine"
     echo "    setup        Install project dependencies"
     echo "    spec         Run acceptance tests against the local virtual machine"
-    echo "    boot         Spin up a local virtual machine"
-    echo "    deploy       Deploy all components to the local virtual machine"
-    echo "    destroy      Destroy the local virtual machine"
-    echo "    precommit    Run all validations before pushing code"
 }
 
 function boot {
