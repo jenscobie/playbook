@@ -38,6 +38,14 @@ function deploy {
     vagrant provision
 }
 
+function destroy {
+    vagrant destroy -f
+}
+
+function execute {
+    ansible-playbook artifactory.yml -i hosts --private-key ~/.ssh/ec2.pem -u ec2-user
+}
+
 function setup {
     which pip >/dev/null 2>&1 || sudo easy_install pip
     ansible --version  >/dev/null 2>&1 || sudo pip install ansible
@@ -60,7 +68,9 @@ case "$1" in
     ;;
     deploy) deploy
     ;;
-    destroy) vagrant destroy -f
+    destroy) destroy
+    ;;
+    execute) execute
     ;;
     help) helptext
     ;;
