@@ -9,6 +9,10 @@ Vagrant.configure(2) do |config|
     goserver.vm.network "forwarded_port", guest: 8153, host: 8153
   end
 
+  config.vm.define "goagent" do |goagent|
+    goagent.vm.network "private_network", ip: "192.168.50.3"
+  end
+
   config.vm.define "artifactory" do |artifactory|
     artifactory.vm.network "private_network", ip: "192.168.50.4"
     artifactory.vm.network "forwarded_port", guest: 8081, host: 8081
@@ -17,7 +21,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "site.yml"
     ansible.groups = {
-        "buildservers" => ["goserver"]
+        "buildagents" => ["goagent"]
     }
   end
 end

@@ -5,10 +5,6 @@ describe command('java -version') do
   its(:stdout) { should match /1.8/ }
 end
 
-describe service('artifactory') do
-  it { should be_running }
-end
-
-describe port(8081) do
+describe port(8153) do
   it { should be_listening }
 end
