@@ -9,3 +9,15 @@
   roles:
       - geerlingguy.java
       - artifactory
+
+- hosts: buildservers
+  sudo: yes
+
+  vars:
+    java_packages:
+      - java-1.8.0-openjdk
+    GOCD_ADMIN_EMAIL: jenscobie@gmail.com
+
+  roles:
+      - geerlingguy.java
+      - { role: tpbrown.gocd, tags: [ 'server' ] }

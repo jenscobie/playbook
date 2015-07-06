@@ -34,7 +34,7 @@ function boot {
     vagrant up --no-provision
 }
 
-function deploy {
+function provision {
     boot
     vagrant provision
 }
@@ -67,8 +67,6 @@ function precommit {
 case "$1" in
     boot) boot
     ;;
-    deploy) deploy
-    ;;
     destroy) destroy
     ;;
     execute) execute
@@ -76,6 +74,8 @@ case "$1" in
     help) helptext
     ;;
     precommit) precommit
+    ;;
+    provision) provision
     ;;
     setup) setup
     ;;
