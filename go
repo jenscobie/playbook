@@ -8,15 +8,6 @@ python -V >/dev/null 2>&1 || { echo >&2 "Python is required. Please install the 
 
 [[ $(vagrant plugin list) == *vagrant-vbguest* ]] || { vagrant plugin install vagrant-vbguest; }
 
-REQUIRED_RUBY=2.1.2
-
-(rbenv versions | grep $REQUIRED_RUBY) || rbenv install $REQUIRED_RUBY
-rbenv local $REQUIRED_RUBY
-(rbenv exec gem list | grep bundler) || rbenv exec gem install bundler
-bundle --path=vendor/bundle --quiet
-
-ansible-galaxy install --role-file=Galaxyfile --roles-path=roles --force
-
 function helptext {
     echo "Usage: ./go <command>"
     echo ""
@@ -35,6 +26,8 @@ function boot {
 }
 
 function provision {
+    ansible-galaxy install --role-file=Galaxyfile --roles-path=roles --force
+
     boot
     vagrant provision
 }
@@ -58,7 +51,7 @@ function spec {
 
 function precommit {
     setup
-    deploy
+    provision
     spec
 }
 

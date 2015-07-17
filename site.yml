@@ -2,31 +2,29 @@
 - hosts: artifactservers
   sudo: yes
 
-  vars:
-    java_packages:
-      - java-1.8.0-openjdk
-
   roles:
-      - geerlingguy.java
-      - artifactory
+      - jenscobie.artifactory
 
 - hosts: buildservers
   sudo: yes
 
   vars:
+    java_packages:
+      - java-1.8.0-openjdk
     GOCD_ADMIN_EMAIL: jenscobie@gmail.com
 
   roles:
+      - geerlingguy.java
       - { role: tpbrown.gocd, tags: [ 'server' ] }
 
 - hosts: buildagents
   sudo: yes
 
   vars:
-    GOCD_ADMIN_EMAIL: jenscobie@gmail.com
     java_packages:
       - java-1.8.0-openjdk
+    GOCD_ADMIN_EMAIL: jenscobie@gmail.com
 
   roles:
-      - { role: tpbrown.gocd, tags: [ 'agent' ] }
       - geerlingguy.java
+      - { role: tpbrown.gocd, tags: [ 'agent' ] }

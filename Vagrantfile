@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "site.yml"
     ansible.groups = {
-        "buildagents" => ["goagent"]
+        "buildservers" => ["goserver"]
     }
   end
 end
